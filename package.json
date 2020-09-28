@@ -1,0 +1,19 @@
+{
+  "name": "omqrc",
+  "version": "0.0.1",
+  "description": "super simple mq emitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodejs test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soldy/OMQrc.git"
+  },
+  "author": "Soldy <npmjs@gidigi.com> (http://gidigi.com)",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Soldy/OMQrc/issues"
+  },
+  "homepage": "https://github.com/Soldy/OMQrc#readme"
+}
