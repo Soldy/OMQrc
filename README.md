@@ -3,17 +3,17 @@ Absolute Minimal Object Message Queuing Emitter
 
 
 !!!DO NOT USE IT!!!
-The redux is slower and well documented and better for you!
+The redux is better for you!
 
 ## init
 
 ```javascript
 
-require('qmrc').init();
+const messager = require('qmrc').OMQBase();
 
 ```
 
-t
+
 
 
 
