@@ -4,7 +4,6 @@
 'use strict';
 
 /*
- * @param {integer} limitIn //maximum size of package
  * @prototype
  */
 const OMQBase = function(){
