@@ -9,6 +9,7 @@
 const OMQBase = function(){
     /*
      * @public
+     * @return {tuple}
      */
     this.stat = function(){
         return {
