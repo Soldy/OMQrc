@@ -12,7 +12,14 @@ const OMQBase = function(){
      * @public
      */
     this.stat = function(){
-        return stat;
+        return {
+            added    : parseInt(stat.added),
+            messages : parseInt(stat.messages),
+            inited   : parseInt(stat.inited),
+            last     : parseInt(stat.last),
+            build    : parseInt(stat.build)
+         };
+
     };
 
     /*
