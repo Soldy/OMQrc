@@ -9,7 +9,7 @@
 const OMQBase = function(){
     /*
      * @public
-     * @return {tuple}
+     * @return {json<int>}
      */
     this.stat = function(){
         return {
@@ -18,7 +18,7 @@ const OMQBase = function(){
             inited   : parseInt(stat.inited),
             last     : parseInt(stat.last),
             build    : parseInt(stat.build)
-         };
+        };
 
     };
 
@@ -26,14 +26,21 @@ const OMQBase = function(){
      * @param {string} subject
      * @param {function} func
      * @public
-     * @return {bool}
+     * @return {void}
      */
     this.add = function(subject, func){
-        if(
-            (typeof func !== 'function')||
-            (typeof subject !== 'string')
-        )
-            return false;
+        if(typeof func !== 'function')
+            throw TypeError(
+                'the second paramater have to be a function but is a "'+
+                (typeof func)+
+                '"'
+            );
+        if(typeof subject !== 'string')
+            throw TypeError(
+                'the first paramater have to be a string but is a "'+
+                (typeof subject)+
+                '"'
+            );
         if(listeners[subject] === 'undefined')
             listeners[subject] = [];
         let date = Date.now();
@@ -53,7 +60,6 @@ const OMQBase = function(){
                 last    :0,
                 added   :date
             };
-        return true;
     };
     /*
      * @param {string} subject
@@ -69,14 +75,14 @@ const OMQBase = function(){
      * @param {string} subject
      * @param {string} message 
      * @public
-     * @return {bool}
+     * @return {void}
      */
     this.message = function(subject, message){
         let now = Date.now();
         stat.messages++;
         stat.last = now;
         if(listeners[subject] === 'undefined')
-            return false;
+            return ;
         subjects[subject].message = message;
         subjects[subject].last    = now;
         subjects[subject].called++ ;
@@ -91,7 +97,6 @@ const OMQBase = function(){
                 listeners[subject][i].failed = true;
             }
         }
-        return true;
     };
     /*
      * @private
@@ -117,5 +122,6 @@ const OMQBase = function(){
 };
 
 exports.OMQBase = OMQBase;
+exports.base = OMQBase;
 
 
